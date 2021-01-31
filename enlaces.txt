@@ -1,0 +1,16 @@
+0 - Extensión Git para Visual Code:
+https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
+
+1 - Curso React 
+https://www.youtube.com/playlist?list=PLYSZyzpwBEWSe71-aLlq71B2LPZzTNO8a
+
+
+Para próximos repositorios: 
+
+2 - Curso Next Bruno Antunes
+
+3 - Fácil Next backend  Twitter clone: https://kunal.sh/posts/building-a-fullstack-twitter-clone
+
+4 - Routes "profesional" Express (Serverless Claudia):  https://medium.com/@johndyer24/simple-steps-to-deploy-an-express-server-to-aws-lambda-with-claudia-js-26c25f8745b5
+
+5 - Fácil Nextjs-Postgres: https://techsolutionshere.com/next-js-with-postgresql/
