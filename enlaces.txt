@@ -1,3 +1,19 @@
+Inicio proyecto Nextjs (codigo en React dentro de carpeta "pages")
+npx create-next-app
+nombre: curso_youtube
+cd curso_youtube
+crear: ejercicio1.js
+npm run dev  
+(visitar localhost:3000/ejercicio1)
+
+ejercicio1: https://youtu.be/00AkMN9IAAY
+
+
+
+
+
+ToDo List
+
 0 - Extensión Git para Visual Code:
 https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
 
