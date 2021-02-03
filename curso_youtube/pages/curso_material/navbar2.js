@@ -37,7 +37,7 @@ function FixedPosition() {
         <Typography variant="title" color="inherit" className={classes.flex}>
           Title
         </Typography>
-        <Button color="inherit">Login</Button>
+        <Button color="inherit"> Login </Button>
       </Toolbar>
     </AppBar>
     <ul>
