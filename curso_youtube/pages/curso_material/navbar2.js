@@ -27,17 +27,13 @@ function FixedPosition() {
   <div className={classes.root}>
     <AppBar position="fixed">
       <Toolbar>
-        <IconButton
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="Menu"
-        >
+      <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
           <MenuIcon />
         </IconButton>
         <Typography variant="title" color="inherit" className={classes.flex}>
           Title
         </Typography>
-        <Button color="inherit">Login</Button>
+        <Button color="inherit"> Login </Button>
       </Toolbar>
     </AppBar>
     <ul>
@@ -47,7 +43,6 @@ function FixedPosition() {
     </ul>
   </div>
 )
-
 }
 
 export default FixedPosition
