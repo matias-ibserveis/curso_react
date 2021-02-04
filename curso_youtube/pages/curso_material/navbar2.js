@@ -43,7 +43,6 @@ function FixedPosition() {
     </ul>
   </div>
 )
-
 }
 
 export default FixedPosition
