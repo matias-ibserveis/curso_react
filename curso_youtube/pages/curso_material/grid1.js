@@ -23,7 +23,11 @@ export default function CenteredGrid() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-      <Mi_navbar texto_barra ={texto_inicial}/>
+      
+      <Grid item xs={12}>
+         <Mi_navbar texto_barra ={texto_inicial}/>
+      </Grid>
+     
         <Grid item xs={12}>
           <Paper className={classes.paper}>xs=12</Paper>
         </Grid>
