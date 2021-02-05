@@ -20,7 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Mi_navbar() {
+export default function Mi_navbar(props) {
+
+  const {texto_barra} = props
   const classes = useStyles();
 
   return (
@@ -31,7 +33,7 @@ export default function Mi_navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            {texto_barra}
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

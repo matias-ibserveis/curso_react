@@ -18,11 +18,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid() {
   const classes = useStyles();
+  const texto_inicial= "Empresa ibserveis"
 
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-      <Mi_navbar />
+      
+      <Grid item xs={12}>
+         <Mi_navbar texto_barra ={texto_inicial}/>
+      </Grid>
+     
         <Grid item xs={12}>
           <Paper className={classes.paper}>xs=12</Paper>
         </Grid>
