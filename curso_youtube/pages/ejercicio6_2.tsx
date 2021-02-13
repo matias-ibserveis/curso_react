@@ -4,12 +4,35 @@
 
 import { useEffect, useState } from 'react';
 
-interface CounterProps {
-  description: string
+export interface Todo {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }
 
-const Contador = ({description }: CounterProps) => {
+interface CounterProps {
+  numeroUsuario: string
+}
+
+const Contador = ({numeroUsuario }: CounterProps) => {
   const [count, setCount] = useState(0)
+  const [todo, setTodo] = useState<Todo>();
+
+  useEffect(() => {
+    async function loadData() {
+      const resp = await fetch(
+        'https://jsonplaceholder.typicode.com/todos/' + numeroUsuario
+      );
+      const json = await resp.json();
+      setTodo(json);
+    }
+
+    // cada vez cambia 'numeroUsuario' se dispara 'loadData'
+    loadData()
+
+  }, [numeroUsuario]);
+  
 
   const sumar_uno = () => {
     setCount(count + 1)
@@ -22,8 +45,11 @@ const Contador = ({description }: CounterProps) => {
   return (
     <div>
       <h5>
-        DESC : {description} 
+        DESC : {numeroUsuario} 
       </h5>
+      <br></br>
+      <p>{todo?.userId}</p>
+      <h6>{todo?.title}</h6>
 
       <button onClick={restar_uno}> - </button>
       {count}
@@ -45,6 +71,7 @@ const Programa = () => {
     setNombre(event.target.value)
   }
 
+
   return (
     <div>
         <input  
@@ -52,12 +79,10 @@ const Programa = () => {
             id='input_nombre'
             onChange = {cambioEstado}
           />
-          <Contador description = {nombre} ></Contador>
+          <Contador numeroUsuario = {nombre} ></Contador>
 
     </div>
-
   )
-
 
 }
 

@@ -11,6 +11,34 @@ interface CounterProps {
 const Contador = ({description }: CounterProps) => {
   const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    const id = setTimeout(() => {
+      console.log('from cancel timeout', description);
+    }, 2000);
+
+    return () => {
+      clearTimeout(id);
+    };
+  });
+
+ /* useEffect(() => {
+    let currentRender = true;
+
+    setTimeout(() => {
+      if (currentRender) {
+        console.log('from variable', description);
+      } else {
+        console.log('UPS I am done');
+      }
+    }, 3000);
+
+    return () => {
+      currentRender = false;
+    };
+  }, [description]);
+
+ */
+
   const sumar_uno = () => {
     setCount(count + 1)
   }
@@ -45,6 +73,7 @@ const Programa = () => {
     setNombre(event.target.value)
   }
 
+
   return (
     <div>
         <input  
@@ -55,9 +84,7 @@ const Programa = () => {
           <Contador description = {nombre} ></Contador>
 
     </div>
-
   )
-
 
 }
 
