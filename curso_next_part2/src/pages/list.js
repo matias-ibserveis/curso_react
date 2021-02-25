@@ -5,11 +5,11 @@ export default function List({ownersList}) {
   
   return (
     <div>
-      {ownersList.map((e, index) => (
+      {ownersList.map((element, index) => (
         <div key={index}>
-          <Link as={`/${e.vehicle}/${e.ownerName}`} href="/[vehicle]/[person]">
+          <Link as={`/${element.namme}/${element.email}`} href="/[vehicle]/[person]">
             <a>
-              Navigate to {e.ownerName}'s {e.vehicle}
+              Navigate to {element.name}'s {element.email}
             </a>
           </Link>
         </div>
@@ -19,7 +19,8 @@ export default function List({ownersList}) {
 }
 
 List.getInitialProps = async () => {
-  const response = await fetch('http://localhost:3000/vehicles');
+  //const response = await fetch('http://localhost:3000/vehicles');
+  const response = await fetch('https://jsonplaceholder.typicode.com/users');
   const ownersList = await response.json();
   return {ownersList: ownersList}
 }
