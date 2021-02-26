@@ -4,7 +4,6 @@ import fetch from 'isomorphic-unfetch';
 export default function List({usuariosList}) {
 
   const crearLista = (lista) => {
-
     const lista_formato = lista.map((element, index) => 
         <div key={index}>
           <Link as={`${element.name}`} href={`/usuario?id=${element.id}`}>
