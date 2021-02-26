@@ -11,7 +11,7 @@ ejercicio1: https://youtu.be/00AkMN9IAAY
 
 json-server:  https://www.npmjs.com/package/json-server
 npm install -g json-server
-Ejecutar servidor json: json-server --watch db.json
+Ejecutar servidor json: json-server --watch db.json --port 4001
 
 ToDo List
 
