@@ -9,13 +9,13 @@ export default function List({datosUsuarios}) {
   const [numUsuario, setNumero] = useState(-1)
   const [nombreUsuario, setNombre] = useState('')
   const [listaUsuarios,setListaUsuarios] = useState(datosUsuarios)
-  // <a href='' onClick={seleccion_idUsuario(element.id)}>      </a>
+  //      
   const crearLista = (lista) => {
     const lista_formato = lista.map((element, index) => 
         <div key={index}>
-           
+           <a onClick={seleccion_idUsuario(element.id)}> 
               Ver la ficha de {element.id} - {element.name}
-           
+          </a>
         </div>
     )
     return lista_formato
@@ -24,9 +24,9 @@ export default function List({datosUsuarios}) {
   // currying : ver ejercicio 5_1. 5_2 , 5_3   https://github.com/matias-ibserveis/curso_react
   
   const seleccion_idUsuario = id_buscado => evento => {
-    const indice = listaUsuarios.findIndex(element => element.id === id_buscado)
-    //setNumero(indice)
-    console.log("indiceUsuario en seleccion",indice)
+    //const indice = listaUsuarios.findIndex(element => element.id === id_buscado)
+    setNumero(id_buscado-1)
+    //console.log("indiceUsuario en seleccion",indice)
   }
   
   const cambioNombre = event => {
@@ -46,15 +46,17 @@ export default function List({datosUsuarios}) {
   }
     
   const VerFicha = () => {
+    console.log("en VerFicha numUsuario=",numUsuario)
+    console.log("listaUsuarios en Ver",listaUsuarios)
     const resultado = 
             <div>
-              <h3>Nombre: {listaUsuarios[numUsuario].name}</h3>
-              <p>email: {listaUsuarios[numUsuario].email}</p>
+              <h3>Nombre: {datosUsuarios[numUsuario].name}</h3>
+              <p>email: {datosUsuarios[numUsuario].email}</p>
             </div>    
     return resultado 
+    
   }
   
-//{ numUsuario>-1 ? VerFicha() : false}
 return (
   <div>
     { crearLista(listaUsuarios) }
@@ -69,7 +71,7 @@ return (
               />
   <p>Escribe nombre y doble click para seleccionar</p> 
 
-  
+  { numUsuario>-1 ? VerFicha() : false}
 
   </div>
 )
