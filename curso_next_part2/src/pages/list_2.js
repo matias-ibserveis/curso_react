@@ -1,3 +1,5 @@
+// https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d
+
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import { Fragment, useEffect, useState } from 'react';
@@ -46,7 +48,8 @@ return (
 }
 
 List.getInitialProps = async () => {
-  //const response = await fetch('https://jsonplaceholder.typicode.com/users');
+  //const response = await fetch
+  ('https://jsonplaceholder.typicode.com/users');
   const response = await fetch('http://localhost:4001/usuarios')
   const listadoDatos = await response.json();
   return {usuariosList: listadoDatos}

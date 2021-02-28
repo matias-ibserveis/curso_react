@@ -10,6 +10,7 @@ interface CounterProps {
 
 const Contador = ({description }: CounterProps) => {
   const [count, setCount] = useState(0)
+  
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -21,7 +22,7 @@ const Contador = ({description }: CounterProps) => {
     return () => {
       //clearTimeout(id);
     };
-  });
+  }, [description]);
 
  /* useEffect(() => {
     let currentRender = true;
@@ -41,8 +42,8 @@ const Contador = ({description }: CounterProps) => {
 
  */
 
-  const sumar_uno = () => {
-    setCount(count + 1)
+  function sumar_uno() {
+    setCount(count + 1);
   }
 
   const restar_uno = () => {
@@ -81,7 +82,7 @@ const Programa = () => {
         <input  
             type='text'
             id='input_nombre'
-            onChange = {cambioEstado}
+            //onChange = {cambioEstado}
           />
           <Contador description = {nombre} ></Contador>
 
