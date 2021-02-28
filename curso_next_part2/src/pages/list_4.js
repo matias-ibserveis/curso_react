@@ -26,35 +26,40 @@ export default function List({datosUsuarios}) {
   const seleccion_idUsuario = id_buscado => evento => {
     //const indice = listaUsuarios.findIndex(element => element.id === id_buscado)
     setNumero(id_buscado-1)
-    //console.log("indiceUsuario en seleccion",indice)
   }
   
   const cambioNombre = event => {
     const valor = event.target.value
-    if (valor === '')  setListaUsuarios(datosUsuarios) 
+    if (valor === '') setListaUsuarios(datosUsuarios) 
     console.log("valor",valor)
     console.log("lista",listaUsuarios)
     setNombre(valor)
   }
 
-  const buscaUsuario = event => {
+  const buscaUsuario = () => {
     console.log(nombreUsuario)
-    const nueva_lista = listaUsuarios.filter(element => element.name.includes(nombreUsuario))  //tolowercase
+    const nomMinusculas = nombreUsuario.toLowerCase()
+    const nueva_lista = listaUsuarios.filter(element => element.name.toLowerCase().includes(nomMinusculas)) 
     // https://stackoverflow.com/questions/44312924/filter-array-of-objects-whose-any-properties-contains-a-value
     console.log(nueva_lista)
     setListaUsuarios(nueva_lista)
+    setNumero(-1)
   }
     
   const VerFicha = () => {
     console.log("en VerFicha numUsuario=",numUsuario)
-    console.log("listaUsuarios en Ver",listaUsuarios)
+    //console.log("listaUsuarios en Ver",listaUsuarios)
     const resultado = 
             <div>
               <h3>Nombre: {datosUsuarios[numUsuario].name}</h3>
               <p>email: {datosUsuarios[numUsuario].email}</p>
             </div>    
     return resultado 
-    
+  }
+
+  const handleKeyPress = (event) => {
+    console.log("eventkey",event.key)
+    if (event.key === 'Enter')  buscaUsuario()
   }
   
 return (
@@ -68,8 +73,9 @@ return (
                 value= {nombreUsuario}
                 onChange={cambioNombre}
                 onDoubleClick={buscaUsuario}
+                onKeyUp={handleKeyPress}
               />
-  <p>Escribe nombre y doble click para seleccionar</p> 
+  <p>Escribe nombre a buscar</p> 
 
   { numUsuario>-1 ? VerFicha() : false}
 
